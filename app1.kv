@@ -3,8 +3,19 @@ TextWidget1:
 <TextWidget1>:
     BoxLayout:
         size: root.size
+        font_name: 'Roboto'
 
         Label:
             id: label1
-            font_name: "DroidSansJapanese.ttf"
-            text: "ゆきだよ！"
+#            font_name: "DroidSansJapanese.ttf"
+            font_name: 'Roboto'
+            font_size: 30
+            text: root.text
+        Button:
+            id: button1
+            text: 'OK'
+            font_size: 30
+            font_name: 'Roboto'
+#            font_name: 'DroidSansJapanese.ttf'
+#            on_press: root.button1Clicked()
+            on_press: label1.text: 'aaaaa'
