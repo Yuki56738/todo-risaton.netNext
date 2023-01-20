@@ -1,0 +1,19 @@
+Widget1:
+
+<Widget1>:
+    BoxLayout:
+        id: box1
+        orientation: 'vertical'
+        size: root.size
+
+        # ラベル
+        Label:
+            id: label1
+            font_size: 68
+            text: "Hello World"
+
+        Button:
+            id: button1
+            text: "OK"
+            font_size: 48
+            on_press: root.clicked1()
