@@ -12,8 +12,10 @@ from kivy.utils import platform
 # import japanize_kivy
 from kivy.core.text import *
 from kivy.resources import *
+
 resource_add_path('fonts/mplus-2c-regular.ttf')
 LabelBase.register(DEFAULT_FONT, 'fonts/mplus-2c-regular.ttf')
+
 # FontContextManager.create('myfont')
 # family = FontContextManager.add_font('fonts/mplus-2c-regular.ttf')
 # FontContextManager.add_font('fonts')
@@ -92,6 +94,8 @@ class MainApp(MDApp):
         if not self.task_list_dialog:
             self.task_list_dialog = MDDialog(
                 title="タスクを作成する",
+                id='dialog1',
+                # font_name="fonts/mplus-2c-regular.ttf",
                 # font_name = 'fonts/mplus-2c-regular.ttf',
                 type="custom",
                 content_cls=DialogContent(),
