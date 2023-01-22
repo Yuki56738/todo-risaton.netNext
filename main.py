@@ -94,7 +94,7 @@ class MainApp(MDApp):
         if not self.task_list_dialog:
             self.task_list_dialog = MDDialog(
                 title="タスクを作成する",
-                id='dialog1',
+                # id='dialog1',
                 # font_name="fonts/mplus-2c-regular.ttf",
                 # font_name = 'fonts/mplus-2c-regular.ttf',
                 type="custom",
