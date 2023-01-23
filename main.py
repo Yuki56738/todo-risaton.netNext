@@ -9,7 +9,7 @@ from datetime import datetime
 from kivymd.uix.list import TwoLineAvatarIconListItem, ILeftBodyTouch
 from kivymd.uix.selectioncontrol import MDCheckbox
 from kivy.utils import platform
-# import japanize_kivy
+import japanize_kivy
 from kivy.core.text import *
 from kivy.resources import *
 
@@ -42,6 +42,7 @@ class DialogContent(MDBoxLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.ids.date_text.text = str(datetime.now().strftime('%A %d %B %Y'))
+        # self.ids.font_name = 'mplus-2c-regular.ttf'
 
     def show_date_picker(self):
         """Opens the date picker"""
@@ -93,14 +94,15 @@ class MainApp(MDApp):
     def show_task_dialog(self):
         if not self.task_list_dialog:
             self.task_list_dialog = MDDialog(
-                title="タスクを作成する",
+                title="Creating Task...",
+                # id='dialog1',
                 # id='dialog1',
                 # font_name="fonts/mplus-2c-regular.ttf",
                 # font_name = 'fonts/mplus-2c-regular.ttf',
+                # font_name = "fonts/mplus-2c-regular.ttf",
                 type="custom",
                 content_cls=DialogContent(),
             )
-
         self.task_list_dialog.open()
 
     def on_start(self):
