@@ -21,13 +21,16 @@ class MyTodoApp extends StatelessWidget {
     );
   }
 }
+
 class TodoListPage extends StatefulWidget {
   @override
   _TodoListPageState createState() => _TodoListPageState();
 }
+
 // リスト一覧画面用Widget
 class _TodoListPageState extends State<TodoListPage> {
   List todolist = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,36 +38,24 @@ class _TodoListPageState extends State<TodoListPage> {
         title: Text('やること一覧'),
       ),
       body: ListView.builder(
-        itemCount: todolist.length,
-        itemBuilder: (context, index){
-          return Card(
-            child: ListTile(
-              title: Text(todolist[index]),
-            ),
-          );
-        },
-      ),
-      // body: ListView(
-      //   children: <Widget>[
-      //     // Text('aaaaa'),
-      //     // Text('bbbb'),
-      //     Card(
-      //       child: ListTile(
-      //         title: Text('aaaa'),
-      //       ),
-      //     )
-      //   ],
-      // ),
-      // child: Text('リスト一覧画面'),
-
-      // ),
+          itemCount: todolist.length + 1,
+          itemBuilder: (context, index) {
+            if (index != todolist.length) {
+              return Card(
+                child: ListTile(
+                  title: Text(todolist[index]),
+                ),
+              );
+            } else {
+              return TextButton(onPressed: () {}, child: Text('aaaa'));
+            }
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          final newListText = await Navigator.of(context).push(
-            MaterialPageRoute(builder: (context){
-              return TodoAddPage();
-            })
-          );
+          final newListText = await Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) {
+            return TodoAddPage();
+          }));
           setState(() {
             todolist.add(newListText);
           });
@@ -75,8 +66,10 @@ class _TodoListPageState extends State<TodoListPage> {
         child: Icon(Icons.add),
       ),
     );
+    // @override
   }
 }
+
 class TodoAddPage extends StatefulWidget {
   @override
   _TodoAddPageState createState() => _TodoAddPageState();
@@ -85,6 +78,7 @@ class TodoAddPage extends StatefulWidget {
 // リスト追加画面用Widget
 class _TodoAddPageState extends State<TodoAddPage> {
   String _text = '';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -98,7 +92,7 @@ class _TodoAddPageState extends State<TodoAddPage> {
             children: <Widget>[
               Text(_text),
               TextField(
-                onChanged: (String value){
+                onChanged: (String value) {
                   setState(() {
                     _text = value;
                   });
@@ -109,9 +103,7 @@ class _TodoAddPageState extends State<TodoAddPage> {
                 // color: Colors.red,
                 // color: Colors.red,
                 child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    primary: Colors.red
-                  ),
+                  style: ElevatedButton.styleFrom(primary: Colors.red),
                   onPressed: () {
                     Navigator.of(context).pop(_text);
                   },
@@ -131,4 +123,8 @@ class _TodoAddPageState extends State<TodoAddPage> {
 //
 //   }
 //
+// }
+
+// class Notify {
+// TodoListPage()
 // }
