@@ -10,13 +10,10 @@ class MyTodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // アプリ名
       title: 'My Todo App',
       theme: ThemeData(
-        // テーマカラー
         primarySwatch: Colors.blue,
       ),
-      // リスト一覧画面を表示
       home: TodoListPage(),
     );
   }
@@ -27,7 +24,6 @@ class TodoListPage extends StatefulWidget {
   _TodoListPageState createState() => _TodoListPageState();
 }
 
-// リスト一覧画面用Widget
 class _TodoListPageState extends State<TodoListPage> {
   List todolist = [];
 
@@ -47,7 +43,18 @@ class _TodoListPageState extends State<TodoListPage> {
                 ),
               );
             } else {
-              return TextButton(onPressed: () {}, child: Text('aaaa'));
+              return TextButton(
+                  onPressed: () {
+                    // todolist.clear();
+                    setState(() {
+                      todolist.clear();
+                    });
+                  },
+                  child: const Text('全消去',
+                      style: TextStyle(
+                          fontSize: 36,
+                          color: Colors.white,
+                          backgroundColor: Colors.blue)));
             }
           }),
       floatingActionButton: FloatingActionButton(
@@ -59,9 +66,6 @@ class _TodoListPageState extends State<TodoListPage> {
           setState(() {
             todolist.add(newListText);
           });
-          // Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-          //   return TodoAddPage();
-          // }));
         },
         child: Icon(Icons.add),
       ),
@@ -96,12 +100,9 @@ class _TodoAddPageState extends State<TodoAddPage> {
                   setState(() {
                     _text = value;
                   });
-                  // _text = value;
                 },
               ),
               Container(
-                // color: Colors.red,
-                // color: Colors.red,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(primary: Colors.red),
                   onPressed: () {
