@@ -34,7 +34,7 @@ class _TodoListPageState extends State<TodoListPage> {
         title: Text('やること一覧'),
       ),
       body: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount: 1,
         children: [
 
           ListView.builder(
