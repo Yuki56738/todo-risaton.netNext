@@ -10,7 +10,7 @@ class MyTodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'My Todo App',
+      title: 'risaton.net',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -63,9 +63,11 @@ class _TodoListPageState extends State<TodoListPage> {
               .push(MaterialPageRoute(builder: (context) {
             return TodoAddPage();
           }));
-          setState(() {
-            todolist.add(newListText);
-          });
+          if (newListText != null) {
+            setState(() {
+              todolist.add(newListText);
+            });
+          }
         },
         child: Icon(Icons.add),
       ),
