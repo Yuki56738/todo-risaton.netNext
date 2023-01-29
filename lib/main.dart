@@ -33,30 +33,36 @@ class _TodoListPageState extends State<TodoListPage> {
       appBar: AppBar(
         title: Text('やること一覧'),
       ),
-      body: ListView.builder(
-          itemCount: todolist.length + 1,
-          itemBuilder: (context, index) {
-            if (index != todolist.length) {
-              return Card(
-                child: ListTile(
-                  title: Text(todolist[index]),
-                ),
-              );
-            } else {
-              return TextButton(
-                  onPressed: () {
-                    // todolist.clear();
-                    setState(() {
-                      todolist.clear();
-                    });
-                  },
-                  child: const Text('全消去',
-                      style: TextStyle(
-                          fontSize: 36,
-                          color: Colors.white,
-                          backgroundColor: Colors.blue)));
-            }
-          }),
+      body: GridView.count(
+        crossAxisCount: 2,
+        children: [
+
+          ListView.builder(
+              itemCount: todolist.length + 1,
+              itemBuilder: (context, index) {
+                if (index != todolist.length) {
+                  return Card(
+                    child: ListTile(
+                      title: Text(todolist[index]),
+                    ),
+                  );
+                } else {
+                  return TextButton(
+                      onPressed: () {
+                        // todolist.clear();
+                        setState(() {
+                          todolist.clear();
+                        });
+                      },
+                      child: const Text('全消去',
+                          style: TextStyle(
+                              fontSize: 36,
+                              color: Colors.white,
+                              backgroundColor: Colors.blue)));
+                }
+              }),
+        ],
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final newListText = await Navigator.of(context)
