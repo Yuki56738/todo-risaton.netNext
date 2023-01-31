@@ -1,7 +1,10 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
+final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+    FlutterLocalNotificationsPlugin();
 void main() {
   runApp(MyTodoApp());
 }
@@ -26,6 +29,12 @@ class TodoListPage extends StatefulWidget {
 
 class _TodoListPageState extends State<TodoListPage> {
   List todolist = [];
+  @override
+  void initState() {
+    super.initState();
+    _initializePlatformSpecifics();
+    _showNotification();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +45,11 @@ class _TodoListPageState extends State<TodoListPage> {
       body: GridView.count(
         crossAxisCount: 1,
         children: [
-
+          ListView.builder(
+              itemCount: 1,
+              itemBuilder: (context, index) {
+                return Text('aaaa');
+              }),
           ListView.builder(
               itemCount: todolist.length + 1,
               itemBuilder: (context, index) {
@@ -123,6 +136,34 @@ class _TodoAddPageState extends State<TodoAddPage> {
           )),
     );
   }
+}
+
+void _initializePlatformSpecifics() {
+  var initializationSettingsIOS = const DarwinInitializationSettings(
+      requestAlertPermission: true,
+      requestBadgePermission: true,
+      requestSoundPermission: false);
+  var initializationSettings =
+      InitializationSettings(iOS: initializationSettingsIOS);
+
+  flutterLocalNotificationsPlugin.initialize(initializationSettings,
+      onDidReceiveNotificationResponse: (NotificationResponse res) {
+    debugPrint('payload:${res.payload}');
+  });
+}
+
+Future<void> _showNotification() async {
+  var iosChannelSpecifics = DarwinNotificationDetails();
+
+  var platformChannelSpecifics = NotificationDetails(iOS: iosChannelSpecifics);
+
+  await flutterLocalNotificationsPlugin.show(
+    0, // Notification ID
+    'Test Title', // Notification Title
+    'Test Body', // Notification Body, set as null to remove the body
+    platformChannelSpecifics,
+    payload: 'New Payload', // Notification Payload
+  );
 }
 
 // class _TodoAddPageState extends State<TodoAddPage>{
