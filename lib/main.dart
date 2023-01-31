@@ -32,8 +32,8 @@ class _TodoListPageState extends State<TodoListPage> {
   @override
   void initState() {
     super.initState();
-    _initializePlatformSpecifics();
-    _showNotification();
+    // _initializePlatformSpecifics();
+    // _showNotification();
   }
 
   @override
