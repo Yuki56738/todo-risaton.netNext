@@ -43,7 +43,7 @@ class _TodoListPageState extends State<TodoListPage> {
         title: Text('やること一覧'),
       ),
       body: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount: 1,
         children: [
           ListView.builder(
               itemCount: 1,
@@ -147,9 +147,9 @@ void _initializePlatformSpecifics() {
   var initializationSettingsIOS = const DarwinInitializationSettings(
       requestAlertPermission: true,
       requestBadgePermission: true,
-      requestSoundPermission: false);
-  var initializationSettings =
-      InitializationSettings(iOS: initializationSettingsIOS);
+      requestSoundPermission: true);
+  var initializationSettings = InitializationSettings(
+      iOS: initializationSettingsIOS, macOS: initializationSettingsIOS);
 
   flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onDidReceiveNotificationResponse: (NotificationResponse res) {
