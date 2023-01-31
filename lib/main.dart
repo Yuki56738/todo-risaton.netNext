@@ -43,12 +43,17 @@ class _TodoListPageState extends State<TodoListPage> {
         title: Text('やること一覧'),
       ),
       body: GridView.count(
-        crossAxisCount: 1,
+        crossAxisCount: 2,
         children: [
           ListView.builder(
               itemCount: 1,
               itemBuilder: (context, index) {
-                return Text('aaaa');
+                return ElevatedButton(
+                    onPressed: () {
+                      _initializePlatformSpecifics();
+                      _showNotification();
+                    },
+                    child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
               }),
           ListView.builder(
               itemCount: todolist.length + 1,
@@ -159,8 +164,8 @@ Future<void> _showNotification() async {
 
   await flutterLocalNotificationsPlugin.show(
     0, // Notification ID
-    'Test Title', // Notification Title
-    'Test Body', // Notification Body, set as null to remove the body
+    'risaton.net', // Notification Title
+    '通知のテストです！', // Notification Body, set as null to remove the body
     platformChannelSpecifics,
     payload: 'New Payload', // Notification Payload
   );
