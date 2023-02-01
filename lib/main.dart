@@ -45,6 +45,7 @@ class _TodoListPageState extends State<TodoListPage> {
       ),
       body: GridView.count(
         crossAxisCount: 1,
+        // semanticChildCount: 2,
         children: [
           ListView.builder(
               itemCount: 1,
