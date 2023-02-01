@@ -5,10 +5,10 @@
 // 'flutter create' template.
 
 // The application's name. By default this is also the title of the Flutter window.
-PRODUCT_NAME = risatonnet
+PRODUCT_NAME = risaton.net
 
 // The application's bundle identifier
-PRODUCT_BUNDLE_IDENTIFIER = net.risaton.risatonnetnext.risatonnet
+PRODUCT_BUNDLE_IDENTIFIER = net.risaton.risatonnet
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2023 net.risaton.risatonnetnext. All rights reserved.
+PRODUCT_COPYRIGHT = Copyright © 2023 Yuki Ito. All rights reserved.
