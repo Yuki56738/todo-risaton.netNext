@@ -160,7 +160,8 @@ void _initializePlatformSpecifics() {
 Future<void> _showNotification() async {
   var iosChannelSpecifics = DarwinNotificationDetails();
 
-  var platformChannelSpecifics = NotificationDetails(iOS: iosChannelSpecifics);
+  var platformChannelSpecifics = NotificationDetails(
+      iOS: iosChannelSpecifics, macOS: DarwinNotificationDetails());
 
   await flutterLocalNotificationsPlugin.show(
     0, // Notification ID
