@@ -48,17 +48,15 @@ class _TodoListPageState extends State<TodoListPage> {
         // semanticChildCount: 2,
         children: [
           ListView.builder(
-              itemCount: 1,
-              itemBuilder: (context, index) {
-                return ElevatedButton(
-                    onPressed: () {
-                      _initializePlatformSpecifics();
-                      _showNotification();
-                    },
-                    child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
-              }),
-          ListView.builder(
-              itemCount: todolist.length + 1,
+
+              //     }
+              //     // if (index == 1) {
+              //     // return Text('aaaaa');
+              //     // }
+              //   },
+              // ),
+              // ListView.builder(
+              itemCount: todolist.length + 2,
               itemBuilder: (context, index) {
                 if (index != todolist.length) {
                   return Card(
@@ -66,7 +64,7 @@ class _TodoListPageState extends State<TodoListPage> {
                       title: Text(todolist[index]),
                     ),
                   );
-                } else {
+                } else if (index == todolist.length) {
                   return TextButton(
                       onPressed: () {
                         // todolist.clear();
@@ -79,6 +77,13 @@ class _TodoListPageState extends State<TodoListPage> {
                               fontSize: 36,
                               color: Colors.white,
                               backgroundColor: Colors.blue)));
+                } else if (index == todolist.length) {
+                  return ElevatedButton(
+                      onPressed: () {
+                        _initializePlatformSpecifics();
+                        _showNotification();
+                      },
+                      child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
                 }
               }),
         ],
