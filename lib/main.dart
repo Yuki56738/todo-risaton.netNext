@@ -44,7 +44,7 @@ class _TodoListPageState extends State<TodoListPage> {
         title: Text('やること一覧'),
       ),
       body: GridView.count(
-        crossAxisCount: 1,
+        crossAxisCount: 2,
         // semanticChildCount: 2,
         children: [
           ListView.builder(
@@ -65,6 +65,7 @@ class _TodoListPageState extends State<TodoListPage> {
                     ),
                   );
                 } else if (index == todolist.length) {
+                  // return Container(
                   return TextButton(
                       onPressed: () {
                         // todolist.clear();
