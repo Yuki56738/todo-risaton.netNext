@@ -56,7 +56,7 @@ class _TodoListPageState extends State<TodoListPage> {
               //   },
               // ),
               // ListView.builder(
-              itemCount: todolist.length + 2,
+              itemCount: todolist.length + 1,
               itemBuilder: (context, index) {
                 if (index != todolist.length) {
                   return Card(
@@ -65,6 +65,39 @@ class _TodoListPageState extends State<TodoListPage> {
                     ),
                   );
                 } else if (index == todolist.length) {
+                  // return TextButton(
+                  //     onPressed: () {
+                  //       // todolist.clear();
+                  //       setState(() {
+                  //         todolist.clear();
+                  //       });
+                  //     },
+                  //     child: const Text('全消去',
+                  //         style: TextStyle(
+                  //             fontSize: 36,
+                  //             color: Colors.white,
+                  //             backgroundColor: Colors.blue)));
+                }
+                // } else {
+                //   return ElevatedButton(
+                //       onPressed: () {
+                //         _initializePlatformSpecifics();
+                //         _showNotification();
+                //       },
+                //       child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
+                // }
+              }),
+          ListView.builder(
+              itemCount: 1,
+              itemBuilder: (context, index) {
+                if (index == 0) {
+                  return ElevatedButton(
+                      onPressed: () {
+                        _initializePlatformSpecifics();
+                        _showNotification();
+                      },
+                      child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
+                } else if (index == 1) {
                   return TextButton(
                       onPressed: () {
                         // todolist.clear();
@@ -77,15 +110,8 @@ class _TodoListPageState extends State<TodoListPage> {
                               fontSize: 36,
                               color: Colors.white,
                               backgroundColor: Colors.blue)));
-                } else if (index == todolist.length) {
-                  return ElevatedButton(
-                      onPressed: () {
-                        _initializePlatformSpecifics();
-                        _showNotification();
-                      },
-                      child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
                 }
-              }),
+              })
         ],
       ),
       floatingActionButton: FloatingActionButton(

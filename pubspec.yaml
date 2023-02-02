@@ -1,7 +1,7 @@
 name: risatonnet
 description: A new Flutter project.
 publish_to: 'none'
-version: 1.1.0+9
+version: 1.1.0+10
 
 environment:
   sdk: '>=2.19.0 <3.0.0'
