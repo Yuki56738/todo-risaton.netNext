@@ -102,19 +102,19 @@ class _TodoListPageState extends State<TodoListPage> {
                               fontSize: 26,
                               color: Colors.white,
                               backgroundColor: Colors.blue)));
-                } else if (index == 1) {
-                  return TextButton(
-                      onPressed: () {
-                        // todolist.clear();
-                        setState(() {
-                          todolist.clear();
-                        });
-                      },
-                      child: const Text('全消去',
-                          style: TextStyle(
-                              fontSize: 36,
-                              color: Colors.white,
-                              backgroundColor: Colors.blue)));
+                  // } else if (index == 1) {
+                  //   return TextButton(
+                  //       onPressed: () {
+                  //         // todolist.clear();
+                  //         setState(() {
+                  //           todolist.clear();
+                  //         });
+                  //       },
+                  //       child: const Text('全消去',
+                  //           style: TextStyle(
+                  //               fontSize: 36,
+                  //               color: Colors.white,
+                  //               backgroundColor: Colors.blue)));
                 }
               })
         ],
