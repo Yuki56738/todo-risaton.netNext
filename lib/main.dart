@@ -92,12 +92,16 @@ class _TodoListPageState extends State<TodoListPage> {
               itemCount: 1,
               itemBuilder: (context, index) {
                 if (index == 0) {
-                  return ElevatedButton(
+                  return TextButton(
                       onPressed: () {
                         _initializePlatformSpecifics();
                         _showNotification();
                       },
-                      child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
+                      child: Text('通知のテスト',
+                          style: TextStyle(
+                              fontSize: 26,
+                              color: Colors.white,
+                              backgroundColor: Colors.blue)));
                 } else if (index == 1) {
                   return TextButton(
                       onPressed: () {
