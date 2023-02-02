@@ -84,7 +84,7 @@ class _TodoListPageState extends State<TodoListPage> {
                           _initializePlatformSpecifics();
                           _showNotification();
                         },
-                        child: Text('通知のテスト',
+                        child: const Text('通知のテスト',
                             style: TextStyle(
                                 fontSize: 26,
                                 color: Colors.white,
@@ -156,7 +156,6 @@ class TodoAddPage extends StatefulWidget {
   _TodoAddPageState createState() => _TodoAddPageState();
 }
 
-// リスト追加画面用Widget
 class _TodoAddPageState extends State<TodoAddPage> {
   String _text = '';
 
@@ -211,8 +210,8 @@ void _initializePlatformSpecifics() {
 Future<void> _showNotification() async {
   var iosChannelSpecifics = DarwinNotificationDetails();
 
-  var platformChannelSpecifics = NotificationDetails(
-      iOS: iosChannelSpecifics, macOS: DarwinNotificationDetails());
+  var platformChannelSpecifics =
+      NotificationDetails(iOS: iosChannelSpecifics, macOS: iosChannelSpecifics);
 
   await flutterLocalNotificationsPlugin.show(
     0, // Notification ID
