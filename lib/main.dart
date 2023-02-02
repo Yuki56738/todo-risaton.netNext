@@ -65,18 +65,18 @@ class _TodoListPageState extends State<TodoListPage> {
                     ),
                   );
                 } else if (index == todolist.length) {
-                  // return TextButton(
-                  //     onPressed: () {
-                  //       // todolist.clear();
-                  //       setState(() {
-                  //         todolist.clear();
-                  //       });
-                  //     },
-                  //     child: const Text('全消去',
-                  //         style: TextStyle(
-                  //             fontSize: 36,
-                  //             color: Colors.white,
-                  //             backgroundColor: Colors.blue)));
+                  return TextButton(
+                      onPressed: () {
+                        // todolist.clear();
+                        setState(() {
+                          todolist.clear();
+                        });
+                      },
+                      child: const Text('全消去',
+                          style: TextStyle(
+                              fontSize: 36,
+                              color: Colors.white,
+                              backgroundColor: Colors.blue)));
                 }
                 // } else {
                 //   return ElevatedButton(
