@@ -44,8 +44,8 @@ class _TodoListPageState extends State<TodoListPage> {
         title: Text('やること一覧'),
       ),
       body: GridView.count(
-        crossAxisCount: 2,
-        // semanticChildCount: 2,
+        crossAxisCount: 1,
+        // maxCrossAxisExtent: 2,
         children: [
           ListView.builder(
 
@@ -66,18 +66,31 @@ class _TodoListPageState extends State<TodoListPage> {
                   );
                 } else if (index == todolist.length) {
                   // return Container(
-                  return TextButton(
-                      onPressed: () {
-                        // todolist.clear();
-                        setState(() {
-                          todolist.clear();
-                        });
-                      },
-                      child: const Text('全消去',
-                          style: TextStyle(
-                              fontSize: 36,
-                              color: Colors.white,
-                              backgroundColor: Colors.blue)));
+                  return Column(children: <Widget>[
+                    ElevatedButton(
+                        onPressed: () {
+                          // todolist.clear();
+                          setState(() {
+                            todolist.clear();
+                          });
+                        },
+                        child: const Text('全消去',
+                            style: TextStyle(
+                                fontSize: 36,
+                                color: Colors.white,
+                                backgroundColor: Colors.blue))),
+                    ElevatedButton(
+                        onPressed: () {
+                          _initializePlatformSpecifics();
+                          _showNotification();
+                        },
+                        child: Text('通知のテスト',
+                            style: TextStyle(
+                                fontSize: 26,
+                                color: Colors.white,
+                                backgroundColor: Colors.blue)))
+                    // Text('aaaa')
+                  ]);
                 }
                 // } else {
                 //   return ElevatedButton(
@@ -87,36 +100,36 @@ class _TodoListPageState extends State<TodoListPage> {
                 //       },
                 //       child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
                 // }
-              }),
-          ListView.builder(
-              itemCount: 1,
-              itemBuilder: (context, index) {
-                if (index == 0) {
-                  return TextButton(
-                      onPressed: () {
-                        _initializePlatformSpecifics();
-                        _showNotification();
-                      },
-                      child: Text('通知のテスト',
-                          style: TextStyle(
-                              fontSize: 26,
-                              color: Colors.white,
-                              backgroundColor: Colors.blue)));
-                  // } else if (index == 1) {
-                  //   return TextButton(
-                  //       onPressed: () {
-                  //         // todolist.clear();
-                  //         setState(() {
-                  //           todolist.clear();
-                  //         });
-                  //       },
-                  //       child: const Text('全消去',
-                  //           style: TextStyle(
-                  //               fontSize: 36,
-                  //               color: Colors.white,
-                  //               backgroundColor: Colors.blue)));
-                }
               })
+          // ListView.builder(
+          //     itemCount: 1,
+          //     itemBuilder: (context, index) {
+          //       if (index == 0) {
+          //         return TextButton(
+          //             onPressed: () {
+          //               _initializePlatformSpecifics();
+          //               _showNotification();
+          //             },
+          //             child: Text('通知のテスト',
+          //                 style: TextStyle(
+          //                     fontSize: 26,
+          //                     color: Colors.white,
+          //                     backgroundColor: Colors.blue)));
+          // } else if (index == 1) {
+          //   return TextButton(
+          //       onPressed: () {
+          //         // todolist.clear();
+          //         setState(() {
+          //           todolist.clear();
+          //         });
+          //       },
+          //       child: const Text('全消去',
+          //           style: TextStyle(
+          //               fontSize: 36,
+          //               color: Colors.white,
+          //               backgroundColor: Colors.blue)));
+          //   }
+          // })
         ],
       ),
       floatingActionButton: FloatingActionButton(
