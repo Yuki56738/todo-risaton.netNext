@@ -48,14 +48,6 @@ class _TodoListPageState extends State<TodoListPage> {
         // maxCrossAxisExtent: 2,
         children: [
           ListView.builder(
-
-              //     }
-              //     // if (index == 1) {
-              //     // return Text('aaaaa');
-              //     // }
-              //   },
-              // ),
-              // ListView.builder(
               itemCount: todolist.length + 1,
               itemBuilder: (context, index) {
                 if (index != todolist.length) {
