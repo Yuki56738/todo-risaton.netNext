@@ -45,17 +45,8 @@ class _TodoListPageState extends State<TodoListPage> {
       ),
       body: GridView.count(
         crossAxisCount: 1,
+        // maxCrossAxisExtent: 2,
         children: [
-          ListView.builder(
-              itemCount: 1,
-              itemBuilder: (context, index) {
-                return ElevatedButton(
-                    onPressed: () {
-                      _initializePlatformSpecifics();
-                      _showNotification();
-                    },
-                    child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
-              }),
           ListView.builder(
               itemCount: todolist.length + 1,
               itemBuilder: (context, index) {
@@ -65,21 +56,72 @@ class _TodoListPageState extends State<TodoListPage> {
                       title: Text(todolist[index]),
                     ),
                   );
-                } else {
-                  return TextButton(
-                      onPressed: () {
-                        // todolist.clear();
-                        setState(() {
-                          todolist.clear();
-                        });
-                      },
-                      child: const Text('全消去',
-                          style: TextStyle(
-                              fontSize: 36,
-                              color: Colors.white,
-                              backgroundColor: Colors.blue)));
+                } else if (index == todolist.length) {
+                  // return Container(
+                  return Column(children: <Widget>[
+                    ElevatedButton(
+                        onPressed: () {
+                          // todolist.clear();
+                          setState(() {
+                            todolist.clear();
+                          });
+                        },
+                        child: const Text('全消去',
+                            style: TextStyle(
+                                fontSize: 36,
+                                color: Colors.white,
+                                backgroundColor: Colors.blue))),
+                    ElevatedButton(
+                        onPressed: () {
+                          _initializePlatformSpecifics();
+                          _showNotification();
+                        },
+                        child: const Text('通知のテスト',
+                            style: TextStyle(
+                                fontSize: 26,
+                                color: Colors.white,
+                                backgroundColor: Colors.blue)))
+                    // Text('aaaa')
+                  ]);
                 }
-              }),
+                // } else {
+                //   return ElevatedButton(
+                //       onPressed: () {
+                //         _initializePlatformSpecifics();
+                //         _showNotification();
+                //       },
+                //       child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
+                // }
+              })
+          // ListView.builder(
+          //     itemCount: 1,
+          //     itemBuilder: (context, index) {
+          //       if (index == 0) {
+          //         return TextButton(
+          //             onPressed: () {
+          //               _initializePlatformSpecifics();
+          //               _showNotification();
+          //             },
+          //             child: Text('通知のテスト',
+          //                 style: TextStyle(
+          //                     fontSize: 26,
+          //                     color: Colors.white,
+          //                     backgroundColor: Colors.blue)));
+          // } else if (index == 1) {
+          //   return TextButton(
+          //       onPressed: () {
+          //         // todolist.clear();
+          //         setState(() {
+          //           todolist.clear();
+          //         });
+          //       },
+          //       child: const Text('全消去',
+          //           style: TextStyle(
+          //               fontSize: 36,
+          //               color: Colors.white,
+          //               backgroundColor: Colors.blue)));
+          //   }
+          // })
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -106,7 +148,6 @@ class TodoAddPage extends StatefulWidget {
   _TodoAddPageState createState() => _TodoAddPageState();
 }
 
-// リスト追加画面用Widget
 class _TodoAddPageState extends State<TodoAddPage> {
   String _text = '';
 
@@ -161,8 +202,8 @@ void _initializePlatformSpecifics() {
 Future<void> _showNotification() async {
   var iosChannelSpecifics = DarwinNotificationDetails();
 
-  var platformChannelSpecifics = NotificationDetails(
-      iOS: iosChannelSpecifics, macOS: DarwinNotificationDetails());
+  var platformChannelSpecifics =
+      NotificationDetails(iOS: iosChannelSpecifics, macOS: iosChannelSpecifics);
 
   await flutterLocalNotificationsPlugin.show(
     0, // Notification ID
