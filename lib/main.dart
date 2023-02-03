@@ -81,47 +81,9 @@ class _TodoListPageState extends State<TodoListPage> {
                                 fontSize: 26,
                                 color: Colors.white,
                                 backgroundColor: Colors.blue)))
-                    // Text('aaaa')
                   ]);
                 }
-                // } else {
-                //   return ElevatedButton(
-                //       onPressed: () {
-                //         _initializePlatformSpecifics();
-                //         _showNotification();
-                //       },
-                //       child: Text('通知のテスト', style: TextStyle(fontSize: 26)));
-                // }
               })
-          // ListView.builder(
-          //     itemCount: 1,
-          //     itemBuilder: (context, index) {
-          //       if (index == 0) {
-          //         return TextButton(
-          //             onPressed: () {
-          //               _initializePlatformSpecifics();
-          //               _showNotification();
-          //             },
-          //             child: Text('通知のテスト',
-          //                 style: TextStyle(
-          //                     fontSize: 26,
-          //                     color: Colors.white,
-          //                     backgroundColor: Colors.blue)));
-          // } else if (index == 1) {
-          //   return TextButton(
-          //       onPressed: () {
-          //         // todolist.clear();
-          //         setState(() {
-          //           todolist.clear();
-          //         });
-          //       },
-          //       child: const Text('全消去',
-          //           style: TextStyle(
-          //               fontSize: 36,
-          //               color: Colors.white,
-          //               backgroundColor: Colors.blue)));
-          //   }
-          // })
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -213,16 +175,3 @@ Future<void> _showNotification() async {
     payload: 'New Payload', // Notification Payload
   );
 }
-
-// class _TodoAddPageState extends State<TodoAddPage>{
-//   @override
-//   Widget build(BuildContext context) {
-//     // TODO: implement build
-//
-//   }
-//
-// }
-
-// class Notify {
-// TodoListPage()
-// }
