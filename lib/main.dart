@@ -1,6 +1,7 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -152,8 +153,9 @@ void _initializePlatformSpecifics() {
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: true);
+  var initalalizationSettingsAndroid = const AndroidInitializationSettings("@mipmap/ic_launcher");
   var initializationSettings = InitializationSettings(
-      iOS: initializationSettingsIOS, macOS: initializationSettingsIOS);
+      iOS: initializationSettingsIOS, macOS: initializationSettingsIOS, android: initalalizationSettingsAndroid);
   flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onDidReceiveNotificationResponse: (NotificationResponse res) {
     debugPrint('payload:${res.payload}');
@@ -162,9 +164,10 @@ void _initializePlatformSpecifics() {
 
 Future<void> _showNotification() async {
   var iosChannelSpecifics = DarwinNotificationDetails();
+  var androidChannelSpecifics = AndroidNotificationDetails("0", "risaton.net");
 
   var platformChannelSpecifics =
-      NotificationDetails(iOS: iosChannelSpecifics, macOS: iosChannelSpecifics);
+      NotificationDetails(iOS: iosChannelSpecifics, macOS: iosChannelSpecifics, android: androidChannelSpecifics);
 
   await flutterLocalNotificationsPlugin.show(
     0, // Notification ID
