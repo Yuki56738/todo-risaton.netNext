@@ -13,7 +13,7 @@ class MyTodoApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'risaton.net',
+      title: 'シンプルToDoアプリ risaton.net',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -66,7 +66,7 @@ class _TodoListPageState extends State<TodoListPage> {
                             todolist.clear();
                           });
                         },
-                        child: const Text('全消去',
+                        child: const Text('リストを全消去',
                             style: TextStyle(
                                 fontSize: 36,
                                 color: Colors.white,
@@ -154,7 +154,6 @@ void _initializePlatformSpecifics() {
       requestSoundPermission: true);
   var initializationSettings = InitializationSettings(
       iOS: initializationSettingsIOS, macOS: initializationSettingsIOS);
-
   flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onDidReceiveNotificationResponse: (NotificationResponse res) {
     debugPrint('payload:${res.payload}');
