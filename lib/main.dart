@@ -1,7 +1,6 @@
 // import 'dart:html';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -153,9 +152,9 @@ void _initializePlatformSpecifics() {
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: true);
-  var initalalizationSettingsAndroid = const AndroidInitializationSettings("@mipmap/ic_launcher");
+  var initializationSettingsAndroid = const AndroidInitializationSettings("@mipmap/ic_launcher");
   var initializationSettings = InitializationSettings(
-      iOS: initializationSettingsIOS, macOS: initializationSettingsIOS, android: initalalizationSettingsAndroid);
+      iOS: initializationSettingsIOS, macOS: initializationSettingsIOS, android: initializationSettingsAndroid);
   flutterLocalNotificationsPlugin.initialize(initializationSettings,
       onDidReceiveNotificationResponse: (NotificationResponse res) {
     debugPrint('payload:${res.payload}');
