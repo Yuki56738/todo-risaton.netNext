@@ -1,4 +1,3 @@
-// import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -10,13 +9,10 @@ final storage = const FlutterSecureStorage();
 List todolist = [];
 
 void main() {
-  // Map<String, String> allValues = await storage.readAll();
-  // debugPrint(allValues.toString());
   runApp(MyTodoApp());
 }
 
 class MyTodoApp extends StatelessWidget {
-  // List todolist = [];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -51,11 +47,6 @@ class _TodoListPageState extends State<TodoListPage> {
   @override
   void initState() {
     _readAll();
-    // super.initState();
-    // todolist.add(getAll());
-
-    // _initializePlatformSpecifics();
-    // _showNotification();
   }
 
   @override
@@ -66,7 +57,6 @@ class _TodoListPageState extends State<TodoListPage> {
       ),
       body: GridView.count(
         crossAxisCount: 1,
-        // maxCrossAxisExtent: 2,
         children: [
           ListView.builder(
               itemCount: todolist.length + 1,
@@ -78,20 +68,7 @@ class _TodoListPageState extends State<TodoListPage> {
                     ),
                   );
                 } else if (index == todolist.length) {
-                  // return Container(
-                  // return Column(children: <Widget>[
-                  //   ElevatedButton(
-                  //       onPressed: () {
-                  //         // todolist.clear();
-                  //         setState(() {
-                  //           todolist.clear();
-                  //         });
-                  //       },
-                  //       child: const Text('リストを全消去',
-                  //           style: TextStyle(
-                  //               fontSize: 36,
-                  //               color: Colors.white,
-                  //               backgroundColor: Colors.blue))),
+
                   return ElevatedButton(
                       onPressed: () {
                         _initializePlatformSpecifics();
