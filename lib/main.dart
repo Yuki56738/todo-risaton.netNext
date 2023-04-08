@@ -5,7 +5,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
-final storage = const FlutterSecureStorage();
+const storage = FlutterSecureStorage();
 List todolist = [];
 
 void main() {
