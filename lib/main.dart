@@ -55,7 +55,11 @@ class _TodoListPageState extends State<TodoListPage> {
       appBar: AppBar(
         title: Text('やること一覧'),
       ),
-      body: GridView.count(
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(image: AssetImage('512.png'))
+        ),
+        child: GridView.count(
         crossAxisCount: 1,
         children: [
           ListView.builder(
@@ -81,8 +85,9 @@ class _TodoListPageState extends State<TodoListPage> {
                               backgroundColor: Colors.blue)));
                 }
               })
+
         ],
-      ),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           final newListText = await Navigator.of(context)
